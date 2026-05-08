@@ -1,0 +1,145 @@
+:root {
+  --brand: #d8a23a;
+  --brand-dark: #8d5f00;
+  --ink: #1c1917;
+  --paper: #fff9ee;
+  --wing: #f7e4bd;
+  --ring: rgba(216, 162, 58, 0.3);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(216, 162, 58, 0.28), transparent 30rem),
+    linear-gradient(135deg, #fffaf0 0%, #fff 48%, #f8efe0 100%);
+  color: var(--ink);
+}
+
+.app-shell {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--brand-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 14ch;
+  margin-bottom: 0.75rem;
+  font-size: clamp(2.25rem, 6vw, 4.75rem);
+  line-height: 0.95;
+}
+
+.hero-copy {
+  max-width: 42rem;
+  color: #57534e;
+  font-size: 1.15rem;
+}
+
+.stamp {
+  display: grid;
+  width: clamp(5rem, 14vw, 8rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 2px dashed rgba(141, 95, 0, 0.4);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 1.25rem 3rem rgba(87, 83, 78, 0.12);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  transform: rotate(7deg);
+}
+
+.grid {
+  align-items: start;
+  grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
+}
+
+.card {
+  border: 1px solid rgba(120, 113, 108, 0.18);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 1.5rem 4rem rgba(68, 64, 60, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.send-card {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.status-card {
+  position: sticky;
+  top: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.field-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+button[type="submit"] {
+  border: none;
+  background: linear-gradient(135deg, var(--brand), #f5c567);
+  color: #2b1a00;
+  font-weight: 800;
+  box-shadow: 0 0.75rem 1.75rem rgba(141, 95, 0, 0.24);
+}
+
+button[type="submit"]:focus {
+  box-shadow: 0 0 0 0.25rem var(--ring), 0 0.75rem 1.75rem rgba(141, 95, 0, 0.24);
+}
+
+.response-output {
+  min-height: 16rem;
+  max-height: 28rem;
+  overflow: auto;
+  border-radius: 1rem;
+  background: #1c1917;
+  color: #fff7ed;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+.muted {
+  color: #78716c;
+}
+
+.success {
+  color: #166534;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .grid,
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .status-card {
+    position: static;
+  }
+}

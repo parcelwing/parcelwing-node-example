@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Parcel Wing Node SDK Example</title>
+    <link rel="stylesheet" href="/pico.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Parcel Wing Node SDK</p>
+          <h1>Send your first test email.</h1>
+          <p class="hero-copy">
+            A minimal example app for trying the official Node.js SDK with your own API key.
+          </p>
+        </div>
+        <div class="stamp" aria-hidden="true">✉️</div>
+      </section>
+
+      <section class="grid">
+        <article class="card send-card">
+          <form id="send-form">
+            <label>
+              API key
+              <input
+                id="apiKey"
+                name="apiKey"
+                type="password"
+                autocomplete="off"
+                placeholder="pw_live_..."
+              />
+              <small id="api-key-help">Used only by this local server request.</small>
+            </label>
+
+            <label>
+              API base URL
+              <input id="baseUrl" name="baseUrl" type="url" value="https://parcelwing.com" />
+              <small>Keep production as-is, or point this at a local Parcel Wing app.</small>
+            </label>
+
+            <div class="field-grid">
+              <label>
+                From
+                <input
+                  id="from"
+                  name="from"
+                  type="text"
+                  placeholder="Parcel Wing <hello@yourdomain.com>"
+                  required
+                />
+              </label>
+
+              <label>
+                To
+                <input
+                  id="to"
+                  name="to"
+                  type="text"
+                  placeholder="you@example.com"
+                  required
+                />
+                <small>Use commas for multiple recipients.</small>
+              </label>
+            </div>
+
+            <label>
+              Reply-to <span class="muted">optional</span>
+              <input id="replyTo" name="replyTo" type="email" placeholder="support@yourdomain.com" />
+            </label>
+
+            <label>
+              Subject
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                value="Hello from Parcel Wing"
+                required
+              />
+            </label>
+
+            <label>
+              Plain text message
+              <textarea id="text" name="text" rows="6" required>Hi there,
+
+This email was sent from the Parcel Wing Node.js SDK example app.
+
+Happy sending!</textarea>
+            </label>
+
+            <details>
+              <summary>Add optional HTML body</summary>
+              <label>
+                HTML message
+                <textarea id="html" name="html" rows="7" spellcheck="false"><strong>Hi there,</strong><br><br>This email was sent from the <em>Parcel Wing Node.js SDK</em> example app.<br><br>Happy sending!</textarea>
+              </label>
+            </details>
+
+            <button id="submit-button" type="submit">Send test email</button>
+          </form>
+        </article>
+
+        <aside class="card status-card">
+          <h2>Response</h2>
+          <p class="muted">Submit the form to see the queued email response or any API validation errors.</p>
+          <pre id="response-output" class="response-output">Waiting for a test send…</pre>
+
+          <hr />
+
+          <h3>How this works</h3>
+          <ol>
+            <li>The browser posts your form to this local Express app.</li>
+            <li>The server creates a Parcel Wing SDK client.</li>
+            <li>The SDK queues the email through <code>emails.send()</code>.</li>
+          </ol>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

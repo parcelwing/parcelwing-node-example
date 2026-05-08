@@ -1,0 +1,30 @@
+{
+  "name": "parcelwing-node-example",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A minimal web app that sends a test email with the official Parcel Wing Node.js SDK.",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@parcelwing/node": "^0.1.0",
+    "@picocss/pico": "^2.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "keywords": [
+    "parcel-wing",
+    "parcelwing",
+    "email",
+    "transactional-email",
+    "nodejs",
+    "sdk",
+    "example"
+  ],
+  "license": "MIT"
+}
